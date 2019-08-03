@@ -1,0 +1,71 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input
+        type="text"
+        id="username"
+        formControlName="username"
+        class="form-control">
+        <span
+            *ngIf="!userForm.get('username').valid && userForm.get('username').touched"
+            class="help-block">
+            <span *ngIf="userForm.get('username').errors['pattern']">This is an invalid name!</span>
+            <span *ngIf="userForm.get('username').errors['required']">This field is required!</span>
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="surname">Surname</label>
+        <input
+        type="text"
+        id="surname"
+        formControlName="surname"
+        class="form-control">
+        <span
+            *ngIf="!userForm.get('surname').valid && userForm.get('surname').touched"
+            class="help-block">
+            <span *ngIf="userForm.get('surname').errors['pattern']">This is an invalid name!</span>
+            <span *ngIf="userForm.get('surname').errors['required']">This field is required!</span>
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="country">Country</label>
+        <select formControlName="country" id="country" class="form-control">
+            <option [ngValue]="null" disabled>Choose your country</option>
+            <option *ngFor="let country of loadedCountries; let i = index" [value]="loadedCountries[i]">
+                {{loadedCountries[i]}}
+            </option>
+        </select>
+        <span
+            *ngIf="!userForm.get('country').valid && userForm.get('country').touched"
+            class="help-block">
+            <span *ngIf="userForm.get('country').errors['required']">This field is required!</span>
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="date">Birthday</label>
+        <input id = "dateOfBirth"
+        name="dateOfBirth"
+        formControlName="birthday"
+        type="text"
+        bsDatepicker
+        class="form-control"> 
+        <span
+            *ngIf="!userForm.get('birthday').valid && userForm.get('birthday').touched"
+            class="help-block">
+            <span *ngIf="userForm.get('birthday').errors['required']">This field is required!</span>
+        </span>
+    </div>
+    <button
+        type="submit"
+        class="btn btn-success pull-right"
+        [disabled]="!userForm.valid">Save
+    </button>
+    </form>
+
+    <div class="row">
+        <div class="col-xs-12 user-message">
+            <p>{{message}}</p>
+        </div>
+    </div>
+   
+      

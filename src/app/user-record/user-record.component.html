@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <thead class ="active"> 
+    <tr>
+      <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users | paginate: config" class="link-menu">
+      <td 
+      (click)="onUser(this.user.name, this.user.surName, this.user.country, this.user.birthday)"
+      class="selected-user">{{user.name}} {{user.surName}}</td>
+      <td>{{user.country}}</td>
+      <td>{{user.birthday}}</td>
+    </tr>
+  </tbody>
+</table> 
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls> 
+<p class="author-text">Pedro Flores</p>
+      

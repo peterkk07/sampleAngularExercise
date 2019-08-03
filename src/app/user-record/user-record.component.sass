@@ -1,0 +1,64 @@
+
+/* ========= VARIABLES =========
+
+$bgColorLiBefore: #7289B6
+$bgColorLiAfter: #3793c34d
+$radius: 4px
+
+/* ========= transition =========
+
+=transition
+  -webkit-transition: all .3s ease-out
+  -moz-transition: all .3s ease-out
+  -ms-transition: all .3s ease-out
+  transition: all .3s ease-out
+
+/* ======= END transition =======
+  
+.selected-user
+  cursor: pointer
+  display: block
+  position: relative
+  border-radius: $radius
+  
+  &:before
+    content: ''
+    position: absolute
+    background: $bgColorLiBefore
+    top: 0
+    left: 0
+    width: 0
+    height: 100%
+
+    +transition
+
+    border-top-left-radius: $radius
+    border-bottom-left-radius: $radius
+
+  &:after
+    content: ''
+    position: absolute
+    background: $bgColorLiAfter
+    top: 0
+    left: 0
+    width: 0
+    height: 100%
+    z-index: 0
+
+    +transition
+
+    border-top-right-radius: $radius
+    border-bottom-right-radius: $radius
+
+  &:hover:before
+    width: 10px
+    left: -10px
+
+  &:hover:after
+    width: 100%
+
+.author-text
+  font-size: 15px
+  font-weight: 600
+  text-align: right
+  margin-top: 10px
