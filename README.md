@@ -12,7 +12,7 @@ $ git clone https://github.com/peterkk07/sampleAngularExercise.git
 Go within the Angular project
 
 ```bash
-$ cd sample-app
+$ cd sampleAngularExercise
 ```
 
 Npm install
